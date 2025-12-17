@@ -13,7 +13,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 # ==============================
 
 
-images_path = "images"
+images_path = "MiniProjet/images"
 
 all_files = os.listdir(images_path)
 
@@ -68,7 +68,7 @@ print("Max :", img_array.max())
 # ==============================
 
 
-base_dir = "dataset"
+base_dir = "Mini/projetdataset"
 subdirs = ["train", "val", "test"]
 classes = ["cats", "dogs"]
 
@@ -104,21 +104,21 @@ val_datagen = ImageDataGenerator(rescale=1./255)
 test_datagen = ImageDataGenerator(rescale=1./255)
 
 train_generator = train_datagen.flow_from_directory(
-    "dataset/train",
+    "MiniProjet/dataset/train",
     target_size=(150, 150),
     batch_size=32,
     class_mode="binary"
 )
 
 val_generator = val_datagen.flow_from_directory(
-    "dataset/val",
+    "MiniProjet/dataset/val",
     target_size=(150, 150),
     batch_size=32,
     class_mode="binary"
 )
 
 test_generator = test_datagen.flow_from_directory(
-    "dataset/test",
+    "MiniProjet/dataset/test",
     target_size=(150, 150),
     batch_size=32,
     class_mode="binary"
@@ -242,7 +242,7 @@ def preprocess_image(img_path):
     img_array = np.expand_dims(img_array, axis=0)
     return img_array
 
-test_dir = "test_images"
+test_dir = "MiniProjet/test_images"
 test_images = os.listdir(test_dir)
 
 for img_name in test_images:
